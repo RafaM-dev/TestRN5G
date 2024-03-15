@@ -48,14 +48,14 @@ export const HomeScreen = () => {
       </Header>
       <ContainerWallet>
         <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 4 }}>
-          <TextHeader fSize='12px'>Disponible</TextHeader>
+          <TextHeader fSize='16px'>Disponible</TextHeader>
           <FontAwesomeIcon size={16} icon={faEyeSlash} color='white' />
         </View>
-        <TextHeaderNumber fSize='12px'>$000.000,00</TextHeaderNumber>
-        <TextHeaderNumber fSize='12px'>Total: $000.000,00</TextHeaderNumber>
+        <TextHeaderNumber fSize='14px'>$000.000,00</TextHeaderNumber>
+        <TextHeaderNumber fSize='14px'>Total: $000.000,00</TextHeaderNumber>
         <ButtonWallet>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
-            <TextHeader fSize='10px'>Tu Plata</TextHeader>
+            <TextHeader fSize='12px'>Tu Plata</TextHeader>
             <FontAwesomeIcon size={16} icon={faChevronDown} color='white' />
           </View>
         </ButtonWallet>

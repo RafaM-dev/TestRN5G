@@ -44,6 +44,7 @@ export const StyledTextInput = styled.TextInput`
   border: 1px solid #D0D0D0;
   border-radius: 10px;
   margin: 10px 0;
+  font-size: 16px;
   width: 80%;
   padding-left: 16px;
 `;

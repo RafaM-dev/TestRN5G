@@ -32,7 +32,7 @@ export const LoansScreen = () => {
                 />
             </TouchableOpacity>
             <Text style={{ fontWeight: 'bold', fontSize: 24, color: '#210049' }}>Prestamos</Text>
-            <Text style={{ color: '#6E6E6E', fontSize: 14 }}>
+            <Text style={{ color: '#6E6E6E', fontSize: 16 }}>
                 Para nosotros es importante que tengas el control de los prestamos que haz realizado
             </Text>
             <View style={{ display: 'flex', flexDirection: 'row', gap: 5 }}>
