@@ -17,7 +17,7 @@ Expo CLI
 ## Instalación
 
 * Clona el repositorio
-   * git clone <url-del-repositorio>
+   * git clone https://github.com/RafaM-dev/TestRN5G.git
 * Instala las dependencias
   * npm install o yarn install
 * Inicia el servidor de desarrollo
