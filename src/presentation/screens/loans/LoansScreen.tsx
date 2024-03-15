@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Text, TouchableOpacity, TextInput, Button } from 'react-native'
 import { IconCard, LoanCard, LoansContainer, StyledTextInput, TextCard } from './style'
 import { useNavigation } from '@react-navigation/native'
+import axios from 'axios'
 
 export const LoansScreen = () => {
     const [loans, setLoans] = useState(null);
@@ -17,22 +18,22 @@ export const LoansScreen = () => {
     };
 
     useEffect(() => {
-        fetch('http://192.168.1.5:5000/loans')
-            .then(response => response.json())
-            .then(data => setLoans(data))
-            .catch(error => console.error('Error:', error));
-    }, []);
+        const fetchLoans = async () => {
+            try {
+                const url = `https://backend-prueba-5g.vercel.app/loans${search ? `?search=${search}` : ''}`;
+                const response = await axios.get(url);
+                setLoans(response.data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
 
-    useEffect(() => {
-        fetch(`http://192.168.1.5:5000/loans?search=${search}`)
-            .then(response => response.json())
-            .then(data => setLoans(data))
-            .catch(error => console.error('Error:', error));
+        fetchLoans();
     }, [search]);
 
     return (
         <LoansContainer>
-            <TouchableOpacity onPress={() => navigation.goBack()} style={{marginBottom:10}}>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginBottom: 10 }}>
                 <FontAwesomeIcon
                     size={30}
                     icon={faArrowLeft}

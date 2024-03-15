@@ -34,7 +34,7 @@ export const LoginScreen = () => {
     }
 
     try {
-      const response = await axios.post('http://192.168.1.5:5000/login', {
+      const response = await axios.post('https://backend-prueba-5g.vercel.app/login', {
         cedula
       });
 
