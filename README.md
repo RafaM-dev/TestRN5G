@@ -1,5 +1,8 @@
 ## Prueba Tenica Red5G
-Esta es una aplicación de React Native construida con TypeScript y gestionada con npm y yarn. La aplicación incluye características para la autenticación de usuarios y la gestión de préstamos.
+Esta es una aplicación de React Native construida con TypeScript y gestionada con npm y yarn. Adicional consume las api de un backend desarollador por mi persona. La aplicación incluye características para la autenticación de usuarios y la gestión de préstamos.
+
+## Repositorio del backend
+https://github.com/RafaM-dev/backendTest5G
 
 ## Comenzando
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para fines de desarrollo y pruebas.
