@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { StackNavigator } from "./src/presentation/navigation/StackNavigator";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Theme } from "./src/styles";
+import { StatusBar } from "react-native";
+import { ToastProvider } from "react-native-toast-notifications";
+import Constants from "expo-constants";
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar barStyle="light-content" backgroundColor='#210049' />
+      <Theme>
+        <NavigationContainer>
+          <ToastProvider
+            offsetTop={Constants.statusBarHeight}
+            placement="top"
+            dangerColor="#EF5350"
+            successColor="#198754"
+          >
+            <StackNavigator />
+          </ToastProvider>
+        </NavigationContainer>
+      </Theme>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
