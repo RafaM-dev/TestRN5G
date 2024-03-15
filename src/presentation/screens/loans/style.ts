@@ -44,5 +44,53 @@ export const StyledTextInput = styled.TextInput`
   border: 1px solid #D0D0D0;
   border-radius: 10px;
   margin: 10px 0;
+  width: 80%;
   padding-left: 16px;
+`;
+
+export const StyledButton = styled.TouchableOpacity`
+  background-color: #310866;
+  padding: 10px 20px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  height: 50px;
+`;
+
+export const ModalContainer = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+`;
+
+export const ModalBox = styled.View`
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+`;
+
+export const ModalText = styled.Text`
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+`;
+
+export const StyledButtonModal = styled.TouchableOpacity<{ bgColor?: string }>`
+  background-color: ${({ bgColor }) => bgColor || "#310866"};
+  padding: 10px 20px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  height: 50px;
+  border: 1px solid #47498D;
+`;
+
+export const ButtonText = styled.Text<{ color?: string }>`
+    color: #310866;
+    text-align: center;
 `;

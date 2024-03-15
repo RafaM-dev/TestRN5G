@@ -7,22 +7,7 @@ import { SvgXml } from 'react-native-svg';
 import { faChevronDown, faDollarSign, faGrip, faHome, faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { iconBolsillos, iconColchon, iconPrestamos, svg1, svg2 } from '../../../styles/svg/loginLogo';
-
-interface TextHeaderProps {
-  fSize?: string;
-  children: string;
-}
-
-const TextHeaderNumber: React.FC<TextHeaderProps> = ({ fSize, children }) => {
-  const [main, decimal] = children.split(',');
-
-  return (
-    <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-      <MainText fSize={fSize}>{main},</MainText>
-      <SmallText>{decimal}</SmallText>
-    </View>
-  );
-};
+import { TextHeaderNumber } from '../../components/TextHeaderNumber/TextHeaderNumber';
 
 export const HomeScreen = () => {
   const userName = 'Usuario';
@@ -33,11 +18,11 @@ export const HomeScreen = () => {
   const handlePress = () => {
     navigation.navigate('Loans' as never);
   };
-
  
   useEffect(() => {
     setCurrentScreen(route.name);
   }, [route.name]);
+
   return (
     <View style={{ backgroundColor: 'white', flex: 1 }}>
       <Header>

@@ -1,9 +1,7 @@
-import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 import { LoadingScreen } from '../screens/loading/LoadingScreen';
 import { LoginScreen } from '../screens/auth/LoginScreen';
-import { RegisterScreen } from '../screens/auth/RegisterScreen';
 import { HomeScreen } from '../screens/home/HomeScreen';
 import { LoansScreen } from '../screens/loans/LoansScreen';
 
@@ -22,7 +20,6 @@ export const StackNavigator = () => {
         }}>
             <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
-            <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Loans" component={LoansScreen} />
         </Stack.Navigator>

@@ -1,60 +1,41 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { Button, ButtonText, CenteredContainer, Container, SmallText, SmallTextRight, SvgBackground, Title } from './styles';
 import { SvgCss } from 'react-native-svg/css';
 import { InputForm, Select } from '../../components';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faCirclePause } from '@fortawesome/free-solid-svg-icons';
+import { faCamera, faCirclePause } from '@fortawesome/free-solid-svg-icons';
 import { Path } from 'react-native-svg';
-import { useNavigation } from '@react-navigation/native';
-import axios from 'axios';
-import { useToast } from 'react-native-toast-notifications';
 import { LoginLogo } from '../../../styles/svg/loginLogo';
-
-const identificationTypes = [
-  { label: 'Cédula de Ciudadanía', value: 'CC' },
-  { label: 'Cédula de Extranjería', value: 'CE' },
-  { label: 'Pasaporte', value: 'PA' },
-];
+import { Icon } from '../home/styles';
+import { useLogin } from '../../hooks/useLogin';
+import { identificationTypes } from '../../../infrastructure/optionSelects';
+import * as ImagePicker from 'expo-image-picker';
 
 export const LoginScreen = () => {
   const { control, formState: { errors }, watch } = useForm();
   const cedula = watch('document_number');
-  const navigation = useNavigation();
-  const toast = useToast();
   const typeId = watch('type_id');
 
-  const handlePress = async () => {
-    if (!typeId || !cedula) {
-      toast.show("Por favor ingrese los campos", {
-        type: "error",
-      });
-      return;
-    }
-
-    try {
-      const response = await axios.post('https://backend-prueba-5g.vercel.app/login', {
-        cedula
-      });
-
-      if (response.data === 'Logged in') {
-        navigation.navigate('Home' as never)
-        toast.show("Bienvenido", {
-          type: "success",
-        });
-      } else {
-        toast.show("Numero de documento incorrecto", {
-          type: "error",
-        });
-      }
-    } catch (error) {
-      console.error(error);
-    }
+  const openCamera = async () => {
+    await ImagePicker.launchCameraAsync({
+      quality: 1,
+      exif: true,
+      cameraType: ImagePicker.CameraType.front,
+  
+    })
   };
+
+  const { handlePress, loading } = useLogin(typeId, cedula)
 
   return (
     <Container>
+      <View style={{ position: 'absolute', top: 20, right: 20, zIndex: 999 }}>
+        <Icon onPress={openCamera}>
+          <FontAwesomeIcon icon={faCamera} size={24} color='white' />
+        </Icon>
+      </View>
       <SvgBackground viewBox="0 0 800 400">
         <Path
           d="M420.6040862244773 206.59552223292755C382.8103563660789 190.39821365443626 282.61302604381325 147.45651184169213 244.81929618541483 131.25920326320093"
@@ -128,7 +109,7 @@ export const LoginScreen = () => {
           />
         </View>
         <Button onPress={handlePress}>
-          <ButtonText>Entra</ButtonText>
+          {loading ? <ActivityIndicator color="#fff" /> : <ButtonText>Entra</ButtonText>}
         </Button>
         <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', paddingHorizontal: 16, marginTop: 10 }}>
           <SmallText>Ayuda</SmallText>
