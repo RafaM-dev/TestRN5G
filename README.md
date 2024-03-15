@@ -6,7 +6,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 ## APK
 Puedes descargar la última versión de la aplicación (APK para Android) desde el siguiente enlace:
-[App]([https://expo.io](https://expo.dev//accounts/rafamdev/projects/pruebaRed5G/builds/f8d9c69d-f0bc-4845-8860-91ca0243ae64))
+[App]([https://expo.dev//accounts/rafamdev/projects/pruebaRed5G/builds/f8d9c69d-f0bc-4845-8860-91ca0243ae64])
 
 ## Prerrequisitos
 Node.js
